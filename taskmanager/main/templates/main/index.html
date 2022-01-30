@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h4>Список заданий</h4>
+    {% if tasks %}
+        {% for el in tasks  %}
+            <div class="alert alert-warning mt-2">
+                <h3>{{ el.title }}</h3>
+                <p>{{ el.task }}</p>
+                <a href="{% url 'show-task' el.id%}" class="btn btn-secondary">Посмотреть</a>
+                <a href="{% url 'update-task' el.id%}" class="btn btn-secondary">Изменить</a>
+                <a href="{% url 'delete-task' el.id%}" class="btn btn-danger">Удалить</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Заданий нет!</p>
+    {% endif %}
+{% endblock %}

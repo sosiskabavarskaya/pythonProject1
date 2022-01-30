@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Просмотр задания
+{% endblock %}
+
+{% block content %}
+    {% if tasks %}
+            <div class="alert alert-warning mt-2">
+                <h3>{{ tasks.title }}</h3>
+                <p>Описание: {{ tasks.task }}</p>
+            </div>
+    {% else %}
+        <p>Такого задания нет.</p>
+    {% endif %}
+{% endblock %}
